@@ -14,6 +14,8 @@ public class FormularioPage {
 	public final String ENDERECO = "//*[@ng-model='Adress']";
 	public final String GENERO = "//*[@value='Male']";
 	public final String HOBBIE = "//input[@id='checkbox2']";
+	public final String EMAIL = "//*[@ng-model='EmailAdress']";
+	public final String TELEFONE = "//*[@ng-model='Phone']";
 
 	public final String CAMPO_LANGUAGES = "//div[@id='msdd']";
 	public final String LIST_LANGUAGES = "//*[@id='basicBootstrapForm']/div[7]/div/multi-select/div[2]/ul";
@@ -35,6 +37,7 @@ public class FormularioPage {
 	public final String CONFIRM_PASSWORD = "//input[@id='secondpassword']";
 
 	public final String SUBMIT = "//button[@id='submitbtn']";
+	
 
 	public void escreverNome(ChromeDriver driver) {
 		driver.findElement(By.xpath(PRIMEIRO_NOME)).sendKeys("Flavio"); // Localizando
@@ -51,11 +54,11 @@ public class FormularioPage {
 	}
 
 	public void preencheEmail(ChromeDriver driver) {
-		driver.findElement(By.xpath("//*[@ng-model='EmailAdress']")).sendKeys("contato@qaacademy.com.br");
+		driver.findElement(By.xpath(EMAIL)).sendKeys("contato@qaacademy.com.br");
 	}
 
 	public void preencheTelefone(ChromeDriver driver) {
-		driver.findElement(By.xpath("//*[@ng-model='Phone']")).sendKeys("+5511977413512");
+		driver.findElement(By.xpath(TELEFONE)).sendKeys("+5511977413512");
 
 	}
 
@@ -147,12 +150,11 @@ public class FormularioPage {
 		driver.findElement(By.xpath(SUBMIT)).click();
 
 	}
-	
-	
-public void languageLI(ChromeDriver driver) throws InterruptedException {
-	driver.findElement(By.xpath("//div[@id='msdd']")).click(); //Clique para expandir a caixa de seleção
-	Thread.sleep(1000); //Espera Explicita de 1 segundo
-	driver.findElement(By.xpath("//a[contains(text(),'English')]")).click();// clicar em cima do texto English
 
-}
+	public void languageLI(ChromeDriver driver) throws InterruptedException {
+		driver.findElement(By.xpath("//div[@id='msdd']")).click(); // Clique para expandir a caixa de seleção
+		Thread.sleep(1000); // Espera Explicita de 1 segundo
+		driver.findElement(By.xpath("//a[contains(text(),'English')]")).click();// clicar em cima do texto English
+
+	}
 }
