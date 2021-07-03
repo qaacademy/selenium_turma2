@@ -6,16 +6,17 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import pages.FormularioPage;
 
 public class TestesFormularioSelenium {
-	static ChromeDriver driver = new ChromeDriver(); // Criando um chrome driver
+	static ChromeDriver driver;
 	FormularioPage formularioPage = new FormularioPage(driver);
 
 	@BeforeClass
 	public static void beforeClass() {
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver = setupChromeDriver();
 		driver.get("http://demo.automationtesting.in/Register.html");// Abrindo uma pagina
 
 	}
@@ -44,5 +45,20 @@ public class TestesFormularioSelenium {
 	public static void AfterClass() {
 		
 		driver.quit();
+	}
+	
+	public static ChromeDriver setupChromeDriver() {
+		
+		
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.addArguments( "--headless");
+		driver = new ChromeDriver(chromeOptions);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+//		"--disable-web-security", "--ignore-certificate-errors", "--allow-running-insecure-content", "--allow-insecure-localhost", "--disable-gpu", "window-size=1200x600", "disable-popup-blocking", "disable-infobars"
+//		);
+		
+		return driver;
+		
 	}
 }
