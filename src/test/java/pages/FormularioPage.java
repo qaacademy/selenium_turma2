@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class FormularioPage {
+	
+	public ChromeDriver driver;
 
 	public final String PRIMEIRO_NOME = "//*[@ng-model='FirstName']";
 	public final String SOBRE_NOME = "//*[@ng-model='LastName']";
@@ -38,40 +40,47 @@ public class FormularioPage {
 
 	public final String SUBMIT = "//button[@id='submitbtn']";
 	
+	/**
+	 * Metodo Contrutor
+	 * @param outroDriver
+	 */
+	public FormularioPage(ChromeDriver outroDriver) {
+		this.driver = outroDriver;
+	}
 
-	public void escreverNome(ChromeDriver driver) {
+	public void escreverNome() {
 		driver.findElement(By.xpath(PRIMEIRO_NOME)).sendKeys("Flavio"); // Localizando
 	}
 
-	public void escreverSobreNome(ChromeDriver driver) {
+	public void escreverSobreNome() {
 
 		driver.findElement(By.xpath(SOBRE_NOME)).sendKeys("Lelis Dias");
 	}
 
-	public void preencheEndereco(ChromeDriver driver) {
+	public void preencheEndereco() {
 		driver.findElement(By.xpath(ENDERECO)).sendKeys("Av Paulista, 509 - 18º andar SL 1"); // Localizando
 
 	}
 
-	public void preencheEmail(ChromeDriver driver) {
+	public void preencheEmail() {
 		driver.findElement(By.xpath(EMAIL)).sendKeys("contato@qaacademy.com.br");
 	}
 
-	public void preencheTelefone(ChromeDriver driver) {
+	public void preencheTelefone() {
 		driver.findElement(By.xpath(TELEFONE)).sendKeys("+5511977413512");
 
 	}
 
-	public void clicaGenero(ChromeDriver driver) {
+	public void clicaGenero() {
 		driver.findElement(By.xpath(GENERO)).click();
 	}
 
-	public void selecionaHobbie(ChromeDriver driver) {
+	public void selecionaHobbie() {
 		driver.findElement(By.xpath(HOBBIE)).click();
 
 	}
 
-	public void selecionaLanguages(ChromeDriver driver) throws InterruptedException {
+	public void selecionaLanguages() throws InterruptedException {
 		driver.findElement(By.xpath(CAMPO_LANGUAGES)).click(); // Clique para expandir a caixa de seleção
 
 		List<WebElement> elementsLanguages = driver.findElements(By.xpath(LIST_LANGUAGES));
@@ -82,7 +91,7 @@ public class FormularioPage {
 
 	}
 
-	public void selecionaSkills(ChromeDriver driver) throws InterruptedException {
+	public void selecionaSkills() throws InterruptedException {
 
 		
 		driver.findElement(By.xpath(LIST_SKILLS)).click();
@@ -91,7 +100,7 @@ public class FormularioPage {
 		optionSkills.selectByVisibleText("XHTML");
 	}
 
-	public void selecionaCountries(ChromeDriver driver) throws InterruptedException {
+	public void selecionaCountries() throws InterruptedException {
 
 		driver.findElement(By.xpath(LIST_COUNTRIES)).click();
 		Select optionCountry = new Select(driver.findElement(By.xpath(LIST_COUNTRIES)));
@@ -100,7 +109,7 @@ public class FormularioPage {
 
 	}
 
-	public void preenchePaisLI(ChromeDriver driver) throws InterruptedException {
+	public void preenchePaisLI() throws InterruptedException {
 
 		
 		driver.findElement(By.xpath(LIST_COUNTRIES_LI)).click(); // Clique para expandir a caixa de seleção
@@ -109,7 +118,7 @@ public class FormularioPage {
 
 	}
 
-	public void preencheDataAniversario(ChromeDriver driver) throws InterruptedException {
+	public void preencheDataAniversario() throws InterruptedException {
 		
 
 		driver.findElement(By.xpath(LIST_YEAR)).click(); // Clique para expandir a caixa de seleção
@@ -135,19 +144,19 @@ public class FormularioPage {
 
 	}
 
-	public void preencheSenha(ChromeDriver driver) {
+	public void preencheSenha() {
 
 		driver.findElement(By.xpath(PASSWORD)).sendKeys("123456789");
 
 		driver.findElement(By.xpath(CONFIRM_PASSWORD)).sendKeys("123456789");
 	}
 
-	public void clicaEmSubmeter(ChromeDriver driver) {
+	public void clicaEmSubmeter() {
 		driver.findElement(By.xpath(SUBMIT)).click();
 
 	}
 
-	public void languageLI(ChromeDriver driver) throws InterruptedException {
+	public void languageLI() throws InterruptedException {
 		driver.findElement(By.xpath("//div[@id='msdd']")).click(); // Clique para expandir a caixa de seleção
 		
 		driver.findElement(By.xpath("//a[contains(text(),'English')]")).click();// clicar em cima do texto English

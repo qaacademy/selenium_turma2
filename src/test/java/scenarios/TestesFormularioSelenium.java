@@ -11,7 +11,7 @@ import pages.FormularioPage;
 
 public class TestesFormularioSelenium {
 	static ChromeDriver driver = new ChromeDriver(); // Criando um chrome driver
-	FormularioPage formularioPage = new FormularioPage();
+	FormularioPage formularioPage = new FormularioPage(driver);
 
 	@BeforeClass
 	public static void beforeClass() {
@@ -23,20 +23,20 @@ public class TestesFormularioSelenium {
 	@Test
 	public void exercicio01Selenium() throws InterruptedException {
 
-		formularioPage.escreverNome(driver);
-		formularioPage.escreverSobreNome(driver);
-		formularioPage.preencheEndereco(driver);
-		formularioPage.preencheEmail(driver);
-		formularioPage.preencheTelefone(driver);
-		formularioPage.clicaGenero(driver);
+		formularioPage.escreverNome();
+		formularioPage.escreverSobreNome();
+		formularioPage.preencheEndereco();
+		formularioPage.preencheEmail();
+		formularioPage.preencheTelefone();
+		formularioPage.clicaGenero();
 
-		formularioPage.selecionaLanguages(driver);
-		formularioPage.selecionaSkills(driver);
-		formularioPage.selecionaCountries(driver);
-		formularioPage.preenchePaisLI(driver);
-		formularioPage.preencheDataAniversario(driver);
-		formularioPage.preencheSenha(driver);
-		formularioPage.clicaEmSubmeter(driver);
+		formularioPage.selecionaLanguages();
+		formularioPage.selecionaSkills();
+		formularioPage.selecionaCountries();
+		formularioPage.preenchePaisLI();
+		formularioPage.preencheDataAniversario();
+		formularioPage.preencheSenha();
+		formularioPage.clicaEmSubmeter();
 
 	}
 	
