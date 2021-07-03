@@ -1,7 +1,8 @@
-package exerciciosSelenium;
+package scenarios;
 
 import java.util.List;
 
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -9,8 +10,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class ExerciciosSelenium {
+import pages.FormularioPage;
+
+public class TestesFormularioSelenium2 {
 	static ChromeDriver driver = new ChromeDriver(); // Criando um chrome driver
+	FormularioPage page = new FormularioPage();
 
 	@BeforeClass
 	public static void beforeClass() {
@@ -21,24 +25,17 @@ public class ExerciciosSelenium {
 	@Test
 	public void exercicio01Selenium() {
 
-		driver.findElement(By.xpath("//*[@ng-model='FirstName']")).sendKeys("Flavio"); // Localizando
-																										// elemento e
-		driver.findElement(By.xpath("//*[@ng-model='LastName']")).sendKeys("Lelis Dias"); // Localizando elemento e
-																							// enviando um texto
-		driver.findElement(By.xpath("//*[@ng-model='Adress']")).sendKeys("Av Paulista, 509 - 18º andar SL 1"); // Localizando
-																												// elemento
-																												// texto
-		driver.findElement(By.xpath("//*[@ng-model='EmailAdress']")).sendKeys("contato@qaacademy.com.br"); // Localizando
-																											// elemento
-																											// um texto
-		driver.findElement(By.xpath("//*[@ng-model='Phone']")).sendKeys("+5511977413512"); // Localizando elemento e
-																						// enviando um texto
+		page.escreverNome(driver);
+		page.escreverSobreNome(driver);
+		page.preencheEndereco(driver);
+		page.preencheEmail(driver);
+		page.preencheTelefone(driver);
 
 	}
 
 	@Test
 	public void exercicio02Selenium() {
-		driver.findElement(By.xpath("//*[@value='Male']")).click();
+		
 	}
 	
 	@Test
@@ -112,12 +109,17 @@ public class ExerciciosSelenium {
 		
 	}
 	
-	@Test
-	public void exercicio04_2Selenium() throws InterruptedException {
-		driver.findElement(By.xpath("//div[@id='msdd']")).click(); //Clique para expandir a caixa de seleção
-		Thread.sleep(1000); //Espera Explicita de 1 segundo
-		driver.findElement(By.xpath("//a[contains(text(),'English')]")).click();// clicar em cima do texto English
-		
+//	@Test
+//	public void exercicio04_2Selenium() throws InterruptedException {
+//		driver.findElement(By.xpath("//div[@id='msdd']")).click(); //Clique para expandir a caixa de seleção
+//		Thread.sleep(1000); //Espera Explicita de 1 segundo
+//		driver.findElement(By.xpath("//a[contains(text(),'English')]")).click();// clicar em cima do texto English
+//		
+//	}
+	
+	@AfterClass
+	public static void afterClass(){
+		driver.quit();
 	}
 	
 	
