@@ -1,5 +1,7 @@
 package exerciciosSelenium;
 
+import java.util.List;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -41,6 +43,26 @@ public class ExerciciosSelenium {
 	@Test
 	public void exercicio03Selenium() {
 		driver.findElement(By.xpath("//input[@id='checkbox2']")).click();
+	}
+	
+	
+	
+	@Test
+	public void exercicio04Selenium() throws InterruptedException {
+		driver.findElement(By.xpath("//div[@id='msdd']")).click(); //Clique para expandir a caixa de seleção
+		Thread.sleep(1000); //Espera Explicita de 1 segundo
+		List<WebElement> elementsLanguages = driver.findElements(By.xpath("//*[@id='basicBootstrapForm']/div[7]/div/multi-select/div[2]/ul"));
+		elementsLanguages.get(0).findElement(By.xpath("//a[contains(text(),'English')]")).click();
+		
+		
+	}
+	
+	@Test
+	public void exercicio04_2Selenium() throws InterruptedException {
+		driver.findElement(By.xpath("//div[@id='msdd']")).click(); //Clique para expandir a caixa de seleção
+		Thread.sleep(1000); //Espera Explicita de 1 segundo
+		driver.findElement(By.xpath("//a[contains(text(),'English')]")).click();// clicar em cima do texto English
+		
 	}
 	
 	
