@@ -65,6 +65,15 @@ public class ExerciciosSelenium {
 		optionSkills.selectByVisibleText("XHTML"); //Seleciona a opção XHTML
 		
 		
+		driver.findElement(By.xpath("//select[@id='countries']")).click(); //Clique para expandir a caixa de seleção
+		Select optionCountry = new Select(driver.findElement(By.xpath("//select[@id='countries']"))); //Carrega a lista de opções para um objeto do tipo Select
+		Thread.sleep(1000); //Espera Explicita de 1 segundo
+		optionCountry.selectByVisibleText("Brazil"); //Seleciona a opção XHTML
+		
+		Thread.sleep(1000); //Espera Explicita de 1 segundo
+		driver.findElement(By.xpath("//span[@role='combobox']")).click(); //Clique para expandir a caixa de seleção
+		Thread.sleep(1000); //Espera Explicita de 1 segundo
+		driver.findElement(By.xpath("//li[contains(text(),'United States of America')]")).click();
 		
 	}
 	
