@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class ExerciciosSelenium {
 	static ChromeDriver driver = new ChromeDriver(); // Criando um chrome driver
@@ -53,17 +54,29 @@ public class ExerciciosSelenium {
 		Thread.sleep(1000); //Espera Explicita de 1 segundo
 		List<WebElement> elementsLanguages = driver.findElements(By.xpath("//*[@id='basicBootstrapForm']/div[7]/div/multi-select/div[2]/ul"));
 		elementsLanguages.get(0).findElement(By.xpath("//a[contains(text(),'English')]")).click();
+		driver.findElement(By.xpath("//label[contains(text(),'Languages')]")).click(); //Recolhe para expandir a caixa de seleção
+
+		
+		driver.findElement(By.xpath("//select[@id='Skills']")).click(); //Clique para expandir a caixa de seleção
+		
+		Select optionSkills = new Select(driver.findElement(By.xpath("//select[@id='Skills']"))); //Carrega a lista de opções para um objeto do tipo Select
+		Thread.sleep(1000); //Espera Explicita de 1 segundo
+		
+		optionSkills.selectByVisibleText("XHTML"); //Seleciona a opção XHTML
+		
 		
 		
 	}
 	
-	@Test
-	public void exercicio04_2Selenium() throws InterruptedException {
-		driver.findElement(By.xpath("//div[@id='msdd']")).click(); //Clique para expandir a caixa de seleção
-		Thread.sleep(1000); //Espera Explicita de 1 segundo
-		driver.findElement(By.xpath("//a[contains(text(),'English')]")).click();// clicar em cima do texto English
-		
-	}
+//	@Test
+//	public void exercicio04_2Selenium() throws InterruptedException {
+//		driver.findElement(By.xpath("//div[@id='msdd']")).click(); //Clique para expandir a caixa de seleção
+//		Thread.sleep(1000); //Espera Explicita de 1 segundo
+//		driver.findElement(By.xpath("//a[contains(text(),'English')]")).click();// clicar em cima do texto English
+//		
+//	}
+	
+	
 	
 	
 
