@@ -74,24 +74,20 @@ public class FormularioPage {
 	public void selecionaLanguages(ChromeDriver driver) throws InterruptedException {
 		driver.findElement(By.xpath(CAMPO_LANGUAGES)).click(); // Clique para expandir a caixa de seleção
 
-		Thread.sleep(1000); // Espera Explicita de 1 segundo
-
 		List<WebElement> elementsLanguages = driver.findElements(By.xpath(LIST_LANGUAGES));
 
 		elementsLanguages.get(0).findElement(By.xpath(ENGLISH)).click();
 
-		driver.findElement(By.xpath(CAMPO_LANGUAGES)).click();
+		driver.findElement(By.xpath(TELEFONE)).click();
 
 	}
 
 	public void selecionaSkills(ChromeDriver driver) throws InterruptedException {
 
+		
 		driver.findElement(By.xpath(LIST_SKILLS)).click();
-
 		Select optionSkills = new Select(driver.findElement(By.xpath(LIST_SKILLS)));
-
-		Thread.sleep(1000);
-
+		
 		optionSkills.selectByVisibleText("XHTML");
 	}
 
@@ -99,42 +95,42 @@ public class FormularioPage {
 
 		driver.findElement(By.xpath(LIST_COUNTRIES)).click();
 		Select optionCountry = new Select(driver.findElement(By.xpath(LIST_COUNTRIES)));
-		Thread.sleep(1000);
+		
 		optionCountry.selectByVisibleText("Brazil");
 
 	}
 
 	public void preenchePaisLI(ChromeDriver driver) throws InterruptedException {
 
-		Thread.sleep(1000); // Espera Explicita de 1 segundo
+		
 		driver.findElement(By.xpath(LIST_COUNTRIES_LI)).click(); // Clique para expandir a caixa de seleção
-		Thread.sleep(1000); // Espera Explicita de 1 segundo
+		
 		driver.findElement(By.xpath(LIST_COUNTRIES_USA)).click();
 
 	}
 
 	public void preencheDataAniversario(ChromeDriver driver) throws InterruptedException {
-		Thread.sleep(1000); // Espera Explicita de 1 segundo
+		
 
 		driver.findElement(By.xpath(LIST_YEAR)).click(); // Clique para expandir a caixa de seleção
 
 		Select optionYear = new Select(driver.findElement(By.xpath(LIST_YEAR))); // Carrega a lista de opções para um
 																					// objeto do tipo Select
-		Thread.sleep(1000); // Espera Explicita de 1 segundo
+		
 		optionYear.selectByVisibleText("1988"); // Seleciona a opção Ano
 
-		Thread.sleep(1000); // Espera Explicita de 1 segundo
+		
 		driver.findElement(By.xpath(LIST_MONTH)).click(); // Clique para expandir a caixa de seleção
 		Select optionMonth = new Select(driver.findElement(By.xpath(LIST_MONTH))); // Carrega a lista de opções para um
 																					// objeto do tipo Select
-		Thread.sleep(1000); // Espera Explicita de 1 segundo
+		
 		optionMonth.selectByVisibleText("April"); // Seleciona a opção Ano
 
-		Thread.sleep(1000); // Espera Explicita de 1 segundo
+		
 		driver.findElement(By.xpath(LIST_DAY)).click(); // Clique para expandir a caixa de seleção
 		Select optionDay = new Select(driver.findElement(By.xpath(LIST_DAY))); // Carrega a lista de opções para um
 																				// objeto do tipo Select
-		Thread.sleep(1000); // Espera Explicita de 1 segundo
+		
 		optionDay.selectByVisibleText("15"); // Seleciona a opção Ano
 
 	}
@@ -153,7 +149,7 @@ public class FormularioPage {
 
 	public void languageLI(ChromeDriver driver) throws InterruptedException {
 		driver.findElement(By.xpath("//div[@id='msdd']")).click(); // Clique para expandir a caixa de seleção
-		Thread.sleep(1000); // Espera Explicita de 1 segundo
+		
 		driver.findElement(By.xpath("//a[contains(text(),'English')]")).click();// clicar em cima do texto English
 
 	}

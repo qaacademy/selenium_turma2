@@ -1,5 +1,7 @@
 package scenarios;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -13,6 +15,7 @@ public class TestesFormularioSelenium {
 
 	@BeforeClass
 	public static void beforeClass() {
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.get("http://demo.automationtesting.in/Register.html");// Abrindo uma pagina
 
 	}
@@ -25,7 +28,6 @@ public class TestesFormularioSelenium {
 		formularioPage.preencheEndereco(driver);
 		formularioPage.preencheEmail(driver);
 		formularioPage.preencheTelefone(driver);
-		formularioPage.clicaGenero(driver);
 		formularioPage.clicaGenero(driver);
 
 		formularioPage.selecionaLanguages(driver);
