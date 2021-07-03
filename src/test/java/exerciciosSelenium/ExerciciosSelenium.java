@@ -21,7 +21,7 @@ public class ExerciciosSelenium {
 	@Test
 	public void exercicio01Selenium() {
 
-		driver.findElement(By.xpath("//*[@ng-model='FirstName']")).sendKeys("1231231321321321321321"); // Localizando
+		driver.findElement(By.xpath("//*[@ng-model='FirstName']")).sendKeys("Flavio"); // Localizando
 																										// elemento e
 		driver.findElement(By.xpath("//*[@ng-model='LastName']")).sendKeys("Lelis Dias"); // Localizando elemento e
 																							// enviando um texto
@@ -31,7 +31,7 @@ public class ExerciciosSelenium {
 		driver.findElement(By.xpath("//*[@ng-model='EmailAdress']")).sendKeys("contato@qaacademy.com.br"); // Localizando
 																											// elemento
 																											// um texto
-		driver.findElement(By.xpath("//*[@ng-model='Phone']")).sendKeys("11977413512"); // Localizando elemento e
+		driver.findElement(By.xpath("//*[@ng-model='Phone']")).sendKeys("+5511977413512"); // Localizando elemento e
 																						// enviando um texto
 
 	}
@@ -75,15 +75,50 @@ public class ExerciciosSelenium {
 		Thread.sleep(1000); //Espera Explicita de 1 segundo
 		driver.findElement(By.xpath("//li[contains(text(),'United States of America')]")).click();
 		
+		Thread.sleep(1000); //Espera Explicita de 1 segundo
+		
+
+		driver.findElement(By.xpath("//select[@id='yearbox']")).click(); //Clique para expandir a caixa de seleção
+		
+		Select optionYear = new Select(driver.findElement(By.xpath("//select[@id='yearbox']"))); //Carrega a lista de opções para um objeto do tipo Select
+		Thread.sleep(1000); //Espera Explicita de 1 segundo
+		optionYear.selectByVisibleText("1988"); //Seleciona a opção Ano
+		
+		Thread.sleep(1000); //Espera Explicita de 1 segundo
+		driver.findElement(By.xpath("//select[@ng-model='monthbox']")).click(); //Clique para expandir a caixa de seleção
+		Select optionMonth = new Select(driver.findElement(By.xpath("//select[@ng-model='monthbox']"))); //Carrega a lista de opções para um objeto do tipo Select
+		Thread.sleep(1000); //Espera Explicita de 1 segundo
+		optionMonth.selectByVisibleText("April"); //Seleciona a opção Ano
+		
+		Thread.sleep(1000); //Espera Explicita de 1 segundo
+		driver.findElement(By.xpath("//select[@id='daybox']")).click(); //Clique para expandir a caixa de seleção
+		Select optionDay = new Select(driver.findElement(By.xpath("//select[@id='daybox']"))); //Carrega a lista de opções para um objeto do tipo Select
+		Thread.sleep(1000); //Espera Explicita de 1 segundo
+		optionDay.selectByVisibleText("15"); //Seleciona a opção Ano
+		
+		driver.findElement(By.xpath("//input[@id='firstpassword']")).sendKeys("123456789");
+		
+		
+		
+		driver.findElement(By.xpath("//input[@id='secondpassword']")).sendKeys("123456789");
+		
+		
+		
+		driver.findElement(By.xpath("//button[@id='submitbtn']")).click();
+		
+		
+		
+		
+		
 	}
 	
-//	@Test
-//	public void exercicio04_2Selenium() throws InterruptedException {
-//		driver.findElement(By.xpath("//div[@id='msdd']")).click(); //Clique para expandir a caixa de seleção
-//		Thread.sleep(1000); //Espera Explicita de 1 segundo
-//		driver.findElement(By.xpath("//a[contains(text(),'English')]")).click();// clicar em cima do texto English
-//		
-//	}
+	@Test
+	public void exercicio04_2Selenium() throws InterruptedException {
+		driver.findElement(By.xpath("//div[@id='msdd']")).click(); //Clique para expandir a caixa de seleção
+		Thread.sleep(1000); //Espera Explicita de 1 segundo
+		driver.findElement(By.xpath("//a[contains(text(),'English')]")).click();// clicar em cima do texto English
+		
+	}
 	
 	
 	
