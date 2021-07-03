@@ -37,5 +37,12 @@ public class ExerciciosSelenium {
 	public void exercicio02Selenium() {
 		driver.findElement(By.xpath("//*[@value='Male']")).click();
 	}
+	
+	@Test
+	public void exercicio03Selenium() {
+		driver.findElement(By.xpath("//input[@id='checkbox2']")).click();
+	}
+	
+	
 
 }
